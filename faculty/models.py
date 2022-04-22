@@ -1,5 +1,5 @@
 from django.db import models
-
+from student.models import Student
 # Create your models here.
 class Faculty(models.Model):
     faculty_id = models.AutoField
@@ -13,3 +13,4 @@ class Complain(models.Model):
     heading = models.CharField(max_length=300)
     description = models.CharField(max_length=5000)
     registered_to = models.ForeignKey('faculty', on_delete=models.CASCADE)
+    user = models.ForeignKey(Student, on_delete=models.CASCADE)

@@ -1,3 +1,4 @@
+from django.contrib.auth.models import Permission, User
 from django.shortcuts import render
 from faculty.models import Complain, Faculty
 from django.contrib import messages
@@ -16,3 +17,6 @@ def new_complain(request):
     else:
         print("GHAPLA HO RHA HAI")
 
+def index(request):
+    if request.user.is_authenticated():
+        User.objects.get()
