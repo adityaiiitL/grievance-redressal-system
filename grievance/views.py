@@ -15,10 +15,14 @@ from django.views.generic import TemplateView
 import smtplib
 import ssl
 
+
 class Homepage(LoginRequiredMixin, TemplateView):
     template_name = 'index.html'
+
+
 def index(request):
-    return render(request,"index.html")
+    return render(request, "index.html")
+
 
 def handleSignUp(request):
     if request.method == "POST":
@@ -34,7 +38,7 @@ def handleSignUp(request):
         myuser.first_name = fname
         myuser.last_name = lname
         if pass2 == pass1:
-             myuser.save()
+            myuser.save()
         messages.success(request, " Your account has been successfully created")
         return redirect('/')
 
@@ -43,16 +47,17 @@ def handleSignUp(request):
 
     return HttpResponse("login")
 
+
 def handleLogin(request):
     if request.method == "POST":
         # Get the post parameters
         loginusername = request.POST['loginusername']
         loginpassword = request.POST['loginpassword']
         loginemail = request.POST['loginemail']
-        user = authenticate(username = loginusername, password = loginpassword,email = loginemail)
-
+        user = authenticate(username=loginusername, password=loginpassword, email=loginemail)
 
     return HttpResponse("/")
+
 
 def handleLogout(request):
     logout(request)
