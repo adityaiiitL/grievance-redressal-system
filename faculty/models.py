@@ -13,4 +13,3 @@ class Complain(models.Model):
     heading = models.CharField(max_length=300)
     description = models.CharField(max_length=5000)
     registered_to = models.ForeignKey('faculty', on_delete=models.CASCADE)
-    faltu = models.CharField(max_length=10, default="")
