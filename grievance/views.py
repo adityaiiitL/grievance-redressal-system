@@ -17,10 +17,8 @@ import ssl
 
 class Homepage(LoginRequiredMixin, TemplateView):
     template_name = 'index.html'
-
 def index(request):
     return render(request,"index.html")
-
 
 def handleSignUp(request):
     if request.method == "POST":
@@ -37,30 +35,6 @@ def handleSignUp(request):
         myuser.last_name = lname
         if pass2 == pass1:
              myuser.save()
-             port = 587  # For starttls
-             smtp_server = "smtp.gmail.com"
-             sender_email = "mycart2403@gmail.com"
-             receiver_email = myuser.email
-             password = 'Z3cs48gBO3hW'
-             message= f"""\
-    Subject: MY AWESOME CART
-    Delivery Information
-    Name :- {username}
-    Email :- {email}
-    address :- {password}
-    Thankyou for creating account in Praaki's shopping site. Wish you a good day ahead!
-    """
-             context = ssl.create_default_context()
-             with smtplib.SMTP(smtp_server, port) as server:
-                try:
-                    server.ehlo()  # Can be omitted
-                    server.starttls(context=context)
-                    server.ehlo()  # Can be omitted
-                    server.login(sender_email, password)
-                    server.sendmail(sender_email, receiver_email, message)
-                except Exception as e:
-                    print(e)
-
         messages.success(request, " Your account has been successfully created")
         return redirect('/')
 
@@ -77,35 +51,6 @@ def handleLogin(request):
         loginemail = request.POST['loginemail']
         user = authenticate(username = loginusername, password = loginpassword,email = loginemail)
 
-        if user is not None:
-            login(request, user)
-            port = 587  # For starttls
-            smtp_server = "smtp.gmail.com"
-            sender_email = "mycart2403@gmail.com"
-            receiver_email = user.email
-            password = 'Z3cs48gBO3hW'
-            message = f"""\
-              Subject: MY AWESOME CART
-              Delivery Information
-              Name :- {loginusername}
-              Password :- {loginpassword}
-              Someone try to login in your account. If you are not this then please change your password!
-              """
-            context = ssl.create_default_context()
-            with smtplib.SMTP(smtp_server, port) as server:
-                try:
-                    server.ehlo()  # Can be omitted
-                    server.starttls(context=context)
-                    server.ehlo()  # Can be omitted
-                    server.login(sender_email, password)
-                    server.sendmail(sender_email, receiver_email, message)
-                except Exception as e:
-                    print(e)
-
-
-        else:
-            messages.error(request, "Invalid, Try Again")
-            return redirect("/")
 
     return HttpResponse("/")
 

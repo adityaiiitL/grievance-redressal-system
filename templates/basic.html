@@ -28,19 +28,6 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-{% if user.is_authenticated  %}
-<ul class="navbar-nav mr-2">
-  <li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle text-white"  href='#'  id="navbarDropdown" role="button" data-toggle="dropdown"> Welcome {{request.user}}</a>
-  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/logout">Logout</a>
-
-          </div>
-        </li>
-        </ul>
-
-{% else %}
-
 <button type="button" class="btn btn-outline-success mr-2" data-toggle="modal" data-target="#loginModal" style="color: white; margin-left:66%">
 Login
 </button>
@@ -49,7 +36,6 @@ Login
 SignUp
 </button>
 
-{% endif %}
     </div>
     </nav>
 
@@ -165,12 +151,7 @@ SignUp
 <br><br>
           <h5 style="text-align: center">Or login with social account</h5>
 
-            {% csrf_token %}<br>
-            <button class="btn" style="margin-bottom: 20px; text-align: center; width: 220px; height:36px; border:none; border-radius:2px; font-size: 15px; transition:0.2s; color:white;background-color:blue"><ion-icon name="logo-facebook" style="font-size:20px"></ion-icon>&nbsp<a href="{% provider_login_url 'facebook' method='oauth2' %}" style="color:white; margin-top: 5%">Login with facebook</a></button>
-
-            <button class="btn" style="margin-bottom: 20px; text-align: center; width: 220px; height:36px; border:none; border-radius:2px; font-size: 15px; transition:0.2s; color:white;background-color:red"><ion-icon name="logo-google" style="font-size:20px"></ion-icon>&nbsp<a href="{% provider_login_url 'google' %}" style=" color:white">Login with Google</a></button>
-             <button class="btn" style="margin-bottom: 20px; text-align: center; width: 220px; height:36px; border:none; border-radius:2px; font-size: 15px; transition:0.2s; color:white;background-color:black"><ion-icon name="logo-github" style="font-size:20px"></ion-icon>&nbsp<a href="{% provider_login_url 'github' %}" style="color:white">Login with Github</a></button>
-             <button class="btn" style="margin-bottom: 20px; text-align: center; width: 220px; height:36px; border:none; border-radius:2px; font-size: 15px; transition:0.2s; color:white;background-color:rgb(21, 159, 240)"><ion-icon name="logo-twitter" style="font-size:20px"></ion-icon>&nbsp<a href="{% provider_login_url 'twitter' %}" style="color:white">Login with Twitter</a></button>
+<!--            {% csrf_token %}<br>-->
 
 </form>
       </div>
