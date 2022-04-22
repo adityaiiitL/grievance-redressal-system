@@ -13,4 +13,6 @@ def search(request):
         return HttpResponse("<h1> HTTP Method Not Allowed </h1>")
     else: 
         query = request.POST.get('query', None)
-        complains = Complain.objects.filter()
+        complains = Complain.objects.filter(Q(heading=query)|Q(description=query))
+        return render(request, 'faculty/search.html', {"complains":complains})
+    
