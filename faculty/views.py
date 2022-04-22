@@ -15,4 +15,6 @@ def search(request):
         query = request.POST.get('query', None)
         complains = Complain.objects.filter(Q(heading=query)|Q(description=query))
         return render(request, 'faculty/search.html', {"complains":complains})
+
+def index(request):
     
