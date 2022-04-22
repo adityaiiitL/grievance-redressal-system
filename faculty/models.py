@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import DateTimeField
 from student.models import Student
 # Create your models here.
 class Faculty(models.Model):
@@ -7,10 +8,11 @@ class Faculty(models.Model):
     designation = models.CharField(max_length=100)
     contact = models.EmailField(max_length=200) 
     parent = models.ForeignKey('self', blank = True, on_delete=models.CASCADE)
-
+    
 class Complain(models.Model): 
     complain_id = models.AutoField
     heading = models.CharField(max_length=300)
     description = models.CharField(max_length=5000)
     registered_to = models.ForeignKey('faculty', on_delete=models.CASCADE)
+    complain_response_date = models.DateField()
     user = models.ForeignKey(Student, on_delete=models.CASCADE)

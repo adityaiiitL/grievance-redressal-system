@@ -9,14 +9,16 @@ def new_complain(request):
         complain_heading = request.POST.get('complain_name')
         complain_description = request.POST.get('complain_description')
         complain_registered = request.POST.get('complain_registered')
+        complain_response_date = request.POST.get('complain_response_date')
         registered_to = Faculty.objects.filter(faculty_id = complain_registered).first()
-        complain_object = Complain(heading = complain_heading,description = complain_description, registered_to = registered_to)
+        complain_object = Complain(heading = complain_heading,description = complain_description, registered_to = registered_to, 
+        complain_response_date = complain_response_date)
         complain_object.save()
-        messages.success(request, messages.SUCCESS, 'Your Complain has been registered successfully.')
-        render('complain.html')
+        messages.success(request, 'Your Complain has been registered successfully.')
+        return render('complain.html')
     else:
         print("GHAPLA HO RHA HAI")
-
+    
 def index(request):
     if request.user.is_authenticated():
         User.objects.get()
