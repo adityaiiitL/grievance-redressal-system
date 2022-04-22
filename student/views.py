@@ -18,7 +18,7 @@ def new_complain(request):
         return render('complain.html')
     else:
         print("GHAPLA HO RHA HAI")
-
+    
 def index(request):
     if request.user.is_authenticated():
         User.objects.get()
