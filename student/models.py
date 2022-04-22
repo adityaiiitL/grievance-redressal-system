@@ -6,3 +6,4 @@ class Student(models.Model):
     student = models.CharField(max_length=100)
     branch = models.CharField(max_length=100)
     email = models.EmailField(max_length=200)
+

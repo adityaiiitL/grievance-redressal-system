@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.db.models import Q
 from django.shortcuts import HttpResponse
-from faculty.models import Faculty, Complain
+from .models import Faculty, Complain
 from student.models import Student
 
 

@@ -11,11 +11,12 @@ urlpatterns = [
 
     # path('student/', include('student.urls')),
     # path('faculty/', include('faculty.urls')),
-
+    path('', views.index, name='index'),
+    path('home',views.home, name='home'),
     path('signup', views.handleSignUp, name="handleSignUp"),
     path('login', views.handleLogin, name="handleLogin"),
     path('logout', views.handleLogout, name="handleLogout"),
-    path('', views.index, name='Home'),
+
     # path('accounts/', include('allauth.urls'))
 
 ] + static(settings.MEDIA_URL, document_root =settings.MEDIA_ROOT)
