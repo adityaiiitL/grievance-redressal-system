@@ -1,172 +1,201 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css2?family=Allison&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Allison&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <title>{% block title%} {% endblock %}</title>
-     <style>
+    <style>
        {% block css %} {% endblock %}
-  </style>
-  </head>
-  <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background: rgb(0, 0, 236)">
-      <span class="badge rounded-circle"> <a class="navbar-brand" href="/" style="color: rgb(255, 255, 255); font-family: 'Allison', cursive;  font-size: 54px;  font-weight: 800; margin-top: -1%; margin-bottom: -1%;" >Praaki</a></span>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background: #0093AB">
+        <span class="badge rounded-circle ml-2"> <a class="navbar-brand" href="/"
+                                                    style="color: rgb(255, 255, 255); font-family: 'Allison', cursive;  font-stretch: expanded;  font-size: 54px;  font-weight: 800; margin-top: -1%; margin-bottom: -1%;">Grievance</a></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
-      <form method='get' action='/shop/search/' class="form-inline" style="margin-left:27%">
-        <input class="form-control mr-sm-2"  style="width: 450px" type="search" placeholder="Search" aria-label="Search" name="search" id="search" style="margin-left:25%">
-      </form>
+    </button>
+    <form method='get' action='/shop/search/' class="form-inline" style="margin:auto">
+        <input class="form-control mr-sm-2" style="width: 450px" type="search" placeholder="Search"
+               aria-label="Search" name="search" id="search" style="margin-left:25%">
+    </form>
 
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse col-md-3 text-end" id="navbarSupportedContent">
 
-<button type="button" class="btn btn-outline-success mr-2" data-toggle="modal" data-target="#loginModal" style="color: white; margin-left:66%">
-Login
-</button>
-
-<button type="button" class="btn btn-outline-warning mr-2" data-toggle="modal" data-target="#signupModal" style="color: white;">
-SignUp
-</button>
-
-    </div>
-    </nav>
-
-
-
-
-
-
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background: black">
-  <a class="navbar-brand" href="/shop" style="font-size: 25px; margin-top:-1%; margin-bottom:-1%" ><b>All</b></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/shop/about">About Us</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="/shop/tracker">Tracker</a>
-      </li>
-
-
-       <li class="nav-item">
-        <a class="nav-link" href="/shop/contact">Contact Us</a>
-      </li>
-    </ul>
-
-<!-- SignUp Modal -->
-<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModal" aria-hidden="true" >
-  <div class="modal-dialog">
-    <div class="modal-content" style="background-color: white; color: black;">
-      <div class="modal-header">
-        <h2 class="modal-title" id="signupModalTitle" style="margin-left: 24%; font-weight: 800; color: rgb(0, 0, 90);">Create Account</h2>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <button type="button" class="btn btn-outline ml-2 mr-2" data-toggle="modal" data-target="#loginModal"
+                style="color: white;">
+            Login
         </button>
-      </div>
-      <div class="modal-body">
-        <form action= "/signup" method='post'>
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" class="form-control" id="username" name="username" placeholder="Choose a unique username">
-  </div>
-  <div class="form-group">
-    <label for="fname">First Name</label>
-    <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter Your First Name">
-  </div>
-  <div class="form-group">
-    <label for="lname">Last Name</label>
-    <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter Your Last Name">
-  </div>
-  <div class="form-group">
-    <label for="email">Email address</label>
-    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
-  </div>
-  <div class="form-group">
-    <label for="pass1">Choose a password</label>
-    <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Choose Your Password">
-  </div>
-  <div class="form-group">
-    <label for="pass2">Confirm Password</label>
-    <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Enter your password again">
-  </div>
 
-
-        {% csrf_token %}
-        <button type="submit" class="btn" style="background:green; color:white; width: 100%; height: 10%; font-size:22px">Submit</button>
-<br>
-</form>
-      </div>
-      <div class="modal-footer">
-      </div>
+        <button type="button" class="btn btn-outline ml-2 mr-2" data-toggle="modal" data-target="#signupModal"
+                style="color: white;">
+            SignUp
+        </button>
 
     </div>
-  </div>
-</div>
+    </div>
+</nav>
 
-      {% block body %}  {% endblock %}
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background: black">
+    <a class="navbar-brand" href="/shop" style="font-size: 25px; margin-top:-1%; margin-bottom:-1%"><b>All</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/shop/about">About Us</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/shop/tracker">Tracker</a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="/shop/contact">Contact Us</a>
+            </li>
+        </ul>
+
+        <!-- SignUp Modal -->
+        <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="background-color: white; color: black;">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="signupModalTitle"
+                            style="margin-left: 24%; font-weight: 800; color: rgb(0, 0, 90);">Create Account</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/signup" method='post'>
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" id="username" name="username"
+                                       placeholder="Choose a unique username">
+                            </div>
+                            <div class="form-group">
+                                <label for="fname">First Name</label>
+                                <input type="text" class="form-control" id="fname" name="fname"
+                                       placeholder="Enter Your First Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="lname">Last Name</label>
+                                <input type="text" class="form-control" id="lname" name="lname"
+                                       placeholder="Enter Your Last Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                       placeholder="name@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="pass1">Choose a password</label>
+                                <input type="password" class="form-control" id="pass1" name="pass1"
+                                       placeholder="Choose Your Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="pass2">Confirm Password</label>
+                                <input type="password" class="form-control" id="pass2" name="pass2"
+                                       placeholder="Enter your password again">
+                            </div>
+
+
+                            {% csrf_token %}
+                            <button type="submit" class="btn"
+                                    style="background:green; color:white; width: 100%; height: 10%; font-size:22px">
+                                Submit
+                            </button>
+                            <br>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+{% block body %} {% endblock %}
 
 <!-- Login Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
-  <div class="modal-dialog">
-    <br><br>
-    <div class="modal-content" style="background-color: white; color: black;">
-      <div class="modal-header">
-        <h2 class="modal-title" id="loginModalTitle" style="margin-left: 28%; font-weight: 800; color: rgb(0, 0, 90);"> Login Here</h2>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <form action="/login" method="POST">
-            {% csrf_token %}
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" class="form-control" id="loginusername" name="loginusername" placeholder="Choose a unique username">
-  </div>
-            <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" class="form-control" id="loginemail" name="loginemail" placeholder="Registered email">
-  </div>
-  <div class="form-group">
-    <label for="pass">Enter your password </label>
-    <input type="password" class="form-control" id="loginpassword" name="loginpassword" placeholder="Enter your password ">
-  </div>
-  <button type="submit" class="btn" style="background:green; color:white; width: 100%; height: 10%; font-size:22px">Submit</button>
-<br><br>
-          <h5 style="text-align: center">Or login with social account</h5>
+    <div class="modal-dialog">
+        <br><br>
+        <div class="modal-content" style="background-color: white; color: black;">
+            <div class="modal-header">
+                <h2 class="modal-title" id="loginModalTitle"
+                    style="margin-left: 28%; font-weight: 800; color: rgb(0, 0, 90);"> Login Here</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/login" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="loginusername" name="loginusername"
+                               placeholder="Choose a unique username">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="loginemail" name="loginemail"
+                               placeholder="Registered email">
+                    </div>
+                    <div class="form-group">
+                        <label for="pass">Enter your password </label>
+                        <input type="password" class="form-control" id="loginpassword" name="loginpassword"
+                               placeholder="Enter your password ">
+                    </div>
+                    <button type="submit" class="btn"
+                            style="background:green; color:white; width: 100%; height: 10%; font-size:22px">
+                        Submit
+                    </button>
+                    <br><br>
+                    <h5 style="text-align: center">Or login with social account</h5>
 
-<!--            {% csrf_token %}<br>-->
+                    <!--            {% csrf_token %}<br>-->
 
-</form>
-      </div>
-       <div class="modal-footer">
-      </div>
-    </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    {% block js %} {% endblock %}
-  </body>
+                </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.js"
+                integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+                integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+                integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+                crossorigin="anonymous"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        {% block js %} {% endblock %}
+</body>
 </html>
