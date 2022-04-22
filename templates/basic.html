@@ -28,6 +28,19 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
+{% if user.is_authenticated  %}
+<ul class="navbar-nav mr-2">
+  <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle text-white"  href='#'  id="navbarDropdown" role="button" data-toggle="dropdown"> Welcome {{request.user}}</a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/logout">Logout</a>
+
+          </div>
+        </li>
+        </ul>
+
+{% else %}
+
 <button type="button" class="btn btn-outline-success mr-2" data-toggle="modal" data-target="#loginModal" style="color: white; margin-left:66%">
 Login
 </button>
@@ -36,6 +49,7 @@ Login
 SignUp
 </button>
 
+{% endif %}
     </div>
     </nav>
 
@@ -68,6 +82,21 @@ SignUp
         <a class="nav-link" href="/shop/contact">Contact Us</a>
       </li>
     </ul>
+ <button type="button" class="btn mx-2" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." style="border-color:white; color: white; margin-left: 45%">
+<strong>Cart</strong> <span id="cart">0</span>
+</button>
+</div>
+</nav>
+{% for message in messages  %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <strong>Message : </strong> {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+{% endfor %}
+
+
 
 <!-- SignUp Modal -->
 <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModal" aria-hidden="true" >
@@ -151,7 +180,6 @@ SignUp
 <br><br>
           <h5 style="text-align: center">Or login with social account</h5>
 
-<!--            {% csrf_token %}<br>-->
 
 </form>
       </div>
