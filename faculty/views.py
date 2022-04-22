@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.db.models import Q
 from django.shortcuts import HttpResponse
-from faculty.models import Faculty, Complain
+from .models import Faculty, Complain
 from student.models import Student
 
 
@@ -16,5 +16,8 @@ def search(request):
         return HttpResponse("<h1> HTTP Method Not Allowed </h1>")
     else:
         query = request.POST.get('query', None)
-        complains = Complain.objects.filter(Q(heading=query) | Q(description=query))
-        return render(request, 'faculty/search.html', {"complains": complains})
+        complains = Complain.objects.filter(Q(heading=query)|Q(description=query))
+        return render(request, 'faculty/search.html', {"complains":complains})
+
+def index(request):
+    

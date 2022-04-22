@@ -1,0 +1,160 @@
+{% extends 'basic.html' %}
+{% block css %}
+<style>
+	html,
+	body {
+		background-color: white;
+		color: #1c2237;
+		margin: 0;
+		width: 100%;
+	}
+
+	.card {
+		width: 23.5rem;
+		background-color: #1c2237;
+		border: none;
+		border-radius: 5px;
+		height: 27rem;
+		color: rgb(240, 232, 232);
+		font: sans-serif;
+		margin-left: 25px;
+		margin-top: 56px;
+		text-align: center;
+		box-shadow: 0px 0px 13px 0px rgba(28, 34, 55, 0.75);
+		-webkit-box-shadow: 0px 0px 13px 0px rgba(28, 34, 55, 0.75);
+		-moz-box-shadow: 0px 0px 13px 0px rgba(28, 34, 55, 0.75);
+		transition: all 0.4s ease-out;
+	}
+
+	.animation-btn {
+		color: #1c2237;
+		background-color: white;
+		transition: all 0.4s ease-out;
+	}
+
+	.animation-btn:hover {
+		color: white;
+		background-color: #1c2237;
+		cursor: pointer;
+		font-weight: 600;
+	}
+
+	.card:hover {
+		cursor: pointer;
+		transform: scale(1.05);
+
+	}
+
+	.card2 {
+		width: 89.5rem;
+		box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.966), 0 6px 20px 0 rgba(0, 0, 0, 0.473);
+		border-radius: 4px;
+		height: max-content;
+		background-color: white;
+		color: #1c2237;
+		font: sans-serif;
+		margin-left: 20px;
+		text-align: center;
+		display: block;
+		flex-grow: 0;
+		flex-shrink: 1;
+		flex-basis: auto;
+		align-self: auto;
+		order: 0;
+		transition: all 0.4s ease-out;
+
+	}
+
+	.card2:hover {
+		transform: scale(1.05);
+		cursor: pointer;
+
+	}
+
+
+	.cd-title {
+		margin-top: 18px;
+		font-size: 27px;
+		color: #1c2237;
+	}
+
+	.cdb,
+	img {
+		border: none;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	.fir-part,
+	.sec-part {
+
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		align-content: center;
+	}
+
+	.fir-part {
+		margin: 5% 0;
+	}
+
+	.sec-part {
+		background-color: #1c2237;
+		color: white;
+		margin-top: 5%;
+		padding: 50px;
+	}
+
+	h1 {
+		text-align: center;
+		background-color: #1c2237;
+		color: white;
+		font-size: 50px;
+		padding: 30px;
+		margin-top: 0px;
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	}
+</style>
+{% endblock css %}
+{% block body %}
+<hr style="background-color:white;">
+<h1>Welcome to the Admin Portal</h1>
+
+<div class="row fir-part" style="display: flex;">
+	<div class="card">
+		<div class="cdb">
+			<a href="faculty/facultyComplain/" style="text-decoration: none; color:white;"> <img src="/media/faculty.jpg"
+					width=100%></a>
+			<br>
+			<h5 class="cd-title" style="color:white;">Faculty</h5>
+			<h6 style="color:white;">Whenever the complainant for valid reasons requests that his identity be withheld while processing the complaint, this will be ensured by the NCTE.</h6>
+		</div>
+	</div>
+<div class="card">
+		<div class="cdb">
+			<a href="student/studentComplain/" style="text-decoration: none; color:white;"> <img src="/media/student.jpg"
+					width=100%></a>
+			<br>
+			<h5 class="cd-title" style="color:white;">Student</h5>
+			<h6 style="color:white;">A complaint from an aggrieved student relating to a college shall be addressed to the Collegiate Student Grievance Redressal Committee (CSGRC)</h6>
+		</div>
+	</div>
+</div>
+<!--<div class="btn-container">-->
+<!--	<p><a class="animation-btn" href="/all/upload">+ Create</a></p>-->
+<!--</div>-->
+
+{% endblock body %}
+
+{% block js%}
+<script>
+	document.getElementById("demo").innerHTML =
+		"cookiesEnabled is " + navigator.cookieEnabled;
+</script>
+{% endblock js %}
