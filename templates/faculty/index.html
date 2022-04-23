@@ -88,9 +88,9 @@
 {% endblock css %}
 {% block body %}
 <hr style="background-color:white;">
-<<<<<<< HEAD
-<h3 style="background:rgb(77, 77, 248); color:white; text-align:center; ">PAST COMPLAINS</h3>
-<h4>COMPLETED COMPLAINTS</h4>
+<div style = "background:#073f50; padding: 10px;margin-left : 15px; margin-right:15px">
+<h3 style="background:#073f50; color:white; text-align:center; ">COMPLETED COMPLAINTS</h3>
+</div>
 {% for i in allcomplains %}
 {% if i.status is 0 %}
 <div class="row fir-part" style="display: flex;">
@@ -101,7 +101,7 @@
         <h5 class="card-title">{{i.heading}}</h5>
         <p class="card-text">{{i.description}}</p>
 		  <h8 >{{i.complain_response_date}}</h8>
-		  <br><br><br>
+		  <br>
 		    <a href="/faculty/read/{{i.complain_id}}" class="btn btn-primary">Go to details</a>
       </div>
     </div>
@@ -112,11 +112,12 @@
 </div>
 {% endif %}
 {% endfor %}
-=======
-<h3 style="background:#073f50; color:white; text-align:center; ">PENDING COMPLAINS</h3>
->>>>>>> 90957059a6bfcda9ecef85c21ca00fd55cb0ea87
-
-<h4>INCOMPLETED COMPLAINTS</h4>
+<br> <br><br> <br><br> <br><br> <br>
+{% comment %} ======= {% endcomment %}
+<div style = "background:#073f50; padding: 10px;margin-left : 15px; margin-right:15px">
+<h3 style="background:#073f50; color:white; text-align:center; ">INCOMPLETED COMPLAINTS</h3>
+</div>
+{% comment %} >>>>>>> 90957059a6bfcda9ecef85c21ca00fd55cb0ea87 {% endcomment %}
 {% for i in allcomplains %}
 {% if i.status is not 0 %}
 <div class="row fir-part" style="display: flex;">
@@ -128,6 +129,7 @@
         <p class="card-text">{{i.description}}</p>
 
 		  <h8 >{{i.complain_response_date}}</h8>
+		  <br>
           <a href="#" class="btn btn-primary">SEND TO HIGHER</a>
       </div>
     </div>
