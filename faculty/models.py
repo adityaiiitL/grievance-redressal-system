@@ -21,3 +21,6 @@ class Complain(models.Model):
     registered_to = models.ForeignKey('faculty', on_delete=models.CASCADE)
     complain_response_date = models.DateTimeField(default=now)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.registered_to
