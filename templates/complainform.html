@@ -2,31 +2,29 @@
 {% block css %}
     .container {
         width: 55.5rem;
-        background-color: #018eb8;
-        border: none;
+        background-color: #057b8d;
         border-radius: 5px;
-        height: 47rem;
         color: rgb(253, 224, 224);
-        font: sans-serif;
-        margin: 15%;
-        padding: 55px;
-        margin-top: 10%;
-        margin-bottom: 15%;
-        font-size: 25px;
-        box-shadow: 0px 0px 13px 0px rgba(28, 34, 55, 0.75);
-        -webkit-box-shadow: 0px 0px 13px 0px rgba(28, 34, 55, 0.75);
-        -moz-box-shadow: 0px 0px 13px 0px rgba(28, 34, 55, 0.75);
+        font: arial;
+        padding: 50px;
+        margin-top: 3%;
+        font-size: 20px;
+        box-shadow: 0px 0px 7px 0px black;
+        -webkit-box-shadow: 0px 0px 7px 0px black;
+        -moz-box-shadow: 0px 0px 7px 0px black;
         transition: all 0.4s ease-out;
     }
 
     .save {
-        border-color: 7px;
+        border-color: black;
         border-radius: 5px;
-        background: black;
+        background:#052a36;
         color: white;
         margin-top: 5%;
+        margin-left: 5%;
         width: 90%;
         height: 60%;
+
     }
 {% endblock %}
 
@@ -39,9 +37,8 @@
        <button type="submit" class="save btn btn-default">Save</button>
    </form>
 </div> -->
-
+<h2 style = "margin-top : 40px;"><center><b>Write your Complaint<b><center></h2>
 <div class="container">
-    <h3>Write your Complaint</h3>
     <form method="POST" class="post-form">
         {% csrf_token %}
         {{ form.as_p }}
