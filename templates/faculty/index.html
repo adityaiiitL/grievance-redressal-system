@@ -4,18 +4,19 @@
 	html,
 	body {
 		background-color: white;
-		color: #1c2237;
+		color: #375eea;
 		margin: 0;
 		width: 100%;
 	}
 
 	.card {
 		width: 23.5rem;
-		background-color: #1c2237;
+		background-color: #f5f7ff;
 		border: none;
-		border-radius: 5px;
-		height: 27rem;
-		color: rgb(240, 232, 232);
+		border-radius: 15px;
+		border-color: black;
+		height: 15rem;
+		color: rgb(0, 0, 0);
 		font: sans-serif;
 		margin-left: 25px;
 		margin-top: 56px;
@@ -26,51 +27,11 @@
 		transition: all 0.4s ease-out;
 	}
 
-	.animation-btn {
-		color: #1c2237;
-		background-color: white;
-		transition: all 0.4s ease-out;
-	}
-
-	.animation-btn:hover {
-		color: white;
-		background-color: #1c2237;
-		cursor: pointer;
-		font-weight: 600;
-	}
-
 	.card:hover {
 		cursor: pointer;
 		transform: scale(1.05);
 
 	}
-
-	.card2 {
-		width: 89.5rem;
-		box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.966), 0 6px 20px 0 rgba(0, 0, 0, 0.473);
-		border-radius: 4px;
-		height: max-content;
-		background-color: white;
-		color: #1c2237;
-		font: sans-serif;
-		margin-left: 20px;
-		text-align: center;
-		display: block;
-		flex-grow: 0;
-		flex-shrink: 1;
-		flex-basis: auto;
-		align-self: auto;
-		order: 0;
-		transition: all 0.4s ease-out;
-
-	}
-
-	.card2:hover {
-		transform: scale(1.05);
-		cursor: pointer;
-
-	}
-
 
 	.cd-title {
 		margin-top: 18px;
@@ -120,23 +81,32 @@
 		margin-top: 0px;
 		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	}
+	h8{
+	margin-top: 90px;
+	}
 </style>
 {% endblock css %}
 {% block body %}
 <hr style="background-color:white;">
-<h3>Welcome to the Faculty Portal</h3>
+<h3 style="background:rgb(77, 77, 248); color:white; text-align:center; ">PENDING COMPLAINS</h3>
 
 {% for i in allcomplains %}
 <div class="row fir-part" style="display: flex;">
-	<div class="card">
-		<div class="cdb">
-			<a href="/faculty/report/" style="text-decoration: none; color:white;"> <img src="/media/faculty.jpg"
-					width=100%></a>
-			<br>
-			<h5 class="cd-title" style="color:white;">{{i.heading}}</h5>
-			<h6 style="color:white;">{{i.description}}</h6>
-		</div>
-	</div>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{i.heading}}</h5>
+        <p class="card-text">{{i.description}}</p>
+
+		  <h8 >{{i.complain_response_date}}</h8>
+		  <br><br><br>
+		    <a href="#" class="btn btn-primary">Go to details</a>
+      </div>
+    </div>
+  </div><div>
+</div>
+</div>
 </div>
 {% endfor %}
 <!--<div class="btn-container">-->

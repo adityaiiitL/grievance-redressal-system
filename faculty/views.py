@@ -7,7 +7,7 @@ from student.models import Student
 
 # Create your views here.
 def report(request):
-    allcomplains = Faculty.objects.all()
+    allcomplains = Complain.objects.all()
     return render(request, 'faculty/index.html', {'allcomplains': allcomplains})
 
 
