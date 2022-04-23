@@ -32,7 +32,9 @@ def home(request):
 def form(request):
     return render(request, "form.html")
 
-
+def about(request):
+    return render(request,"aboutus.html")
+    
 def handleSignUp(request):
     if request.method == "POST":
         # Get the post parameters
