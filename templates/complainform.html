@@ -1,25 +1,22 @@
 {% extends 'basic.html' %}
 {% block css %}
-<style>
     .container {
         width: 55.5rem;
-        background-color: #073f50;
+        background-color: #018eb8;
         border: none;
         border-radius: 5px;
         height: 47rem;
-        color: rgb(240, 232, 232);
+        color: rgb(253, 224, 224);
         font: sans-serif;
         margin: 15%;
         padding: 55px;
         margin-top: 10%;
         margin-bottom: 15%;
         font-size: 25px;
-        text-align: center;
         box-shadow: 0px 0px 13px 0px rgba(28, 34, 55, 0.75);
         -webkit-box-shadow: 0px 0px 13px 0px rgba(28, 34, 55, 0.75);
         -moz-box-shadow: 0px 0px 13px 0px rgba(28, 34, 55, 0.75);
         transition: all 0.4s ease-out;
-
     }
 
     .save {
@@ -31,27 +28,25 @@
         width: 90%;
         height: 60%;
     }
-</style>
 {% endblock %}
 
 
 {% block body %}
-<!--<div style="width: 18rem; ">-->
-<!--    <form method="POST" class="post-form">-->
-<!--        {% csrf_token %}-->
-<!--        {{ form.as_p }}-->
-<!--        <button type="submit" class="save btn btn-default">Save</button>-->
-<!--    </form>-->
-<!--</div>-->
+<!-- <div style="width: 18rem; ">
+   <form method="POST" class="post-form">
+       {% csrf_token %}
+       {{ form.as_p }}
+       <button type="submit" class="save btn btn-default">Save</button>
+   </form>
+</div> -->
 
 <div class="container">
+    <h3>Write your Complaint</h3>
     <form method="POST" class="post-form">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save">Save</button>
     </form>
 </div>
-</div>
-
 
 {% endblock %}

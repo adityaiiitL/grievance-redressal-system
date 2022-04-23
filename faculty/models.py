@@ -1,9 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.forms import DateTimeField
-import datetime
-from datetime import timezone
-from django.utils import timezone
 from student.models import Student
 from django.utils.timezone import now
 # Create your models here.
