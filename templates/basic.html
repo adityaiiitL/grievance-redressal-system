@@ -20,7 +20,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark" style="background: #0093AB">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background: #057b8d">
         <span class="badge rounded-circle ml-2"> <a class="navbar-brand" href="/"
                                                     style="color: rgb(255, 255, 255); font-family: 'Allison', cursive;  font-stretch: expanded;  font-size: 54px;  font-weight: 800; margin-top: -1%; margin-bottom: -1%;">Grievance</a></span>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -47,11 +47,11 @@
             </div>
     {% else %}
 
-<button type="button" class="btn  mr-2" data-toggle="modal" data-target="#loginModal" style=" background-color:#ffc107; color: white;">
+<button type="button" class="btn  mr-2" data-toggle="modal" data-target="#loginModal" style=" background-color:green; color: white;">
 Login
 </button>
 
-<button type="button" class="btn btn-success mr-2" data-toggle="modal" data-target="#signupModal">
+<button type="button" class="btn btn-success mr-2" data-toggle="modal" data-target="#signupModal" style=" background-color:green; color: white;">
 SignUp
 </button>
 
@@ -95,7 +95,7 @@ SignUp
                 <div class="modal-content" style="background-color: white; color: black;">
                     <div class="modal-header">
                         <h2 class="modal-title" id="signupModalTitle"
-                            style="margin-left: 24%; font-weight: 800; color: rgb(0, 0, 90);">Create Account</h2>
+                            style="margin-left: 24%; font-weight: 800; color: #073f50;">Create Account</h2>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -136,7 +136,7 @@ SignUp
 
                             {% csrf_token %}
                             <button type="submit" class="btn"
-                                    style="background:green; color:white; width: 100%; height: 10%; font-size:22px">
+                                    style="background:rgb(28, 137, 35); color:white; width: 100%; height: 10%; font-size:22px">
                                 Submit
                             </button>
                             <br>
@@ -159,7 +159,7 @@ SignUp
         <div class="modal-content" style="background-color: white; color: black;">
             <div class="modal-header">
                 <h2 class="modal-title" id="loginModalTitle"
-                    style="margin-left: 28%; font-weight: 800; color: rgb(0, 0, 90);"> Login Here</h2>
+                    style="margin-left: 28%; font-weight: 800; color: #073f50;"> Login Here</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -183,7 +183,7 @@ SignUp
                                placeholder="Enter your password ">
                     </div>
                     <button type="submit" class="btn"
-                            style="background:green; color:white; width: 100%; height: 10%; font-size:22px">
+                            style="background:rgb(28, 137, 35); color:white; width: 100%; height: 10%; font-size:22px">
                         Submit
                     </button>
                     <br><br>
