@@ -22,17 +22,10 @@ def update_tree():
 
 
 def report(request):
-    update_tree()
+    # update_tree()
     allcomplains = Complain.objects.all()
     allfaculty = Faculty.objects.all()
     return render(request, 'faculty/index.html', {'allcomplains': allcomplains, 'allfaculty':allfaculty})
-
-
-def report(request):
-    #meri logic 
-    update_tree()
-    complains = Complain.objects.all()[0:10]
-    return render(request, 'faculty/index.html', {"complains":complains})
 
 
 # API's here
