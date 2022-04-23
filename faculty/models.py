@@ -1,6 +1,5 @@
 from django.db import models
 from django.forms import DateTimeField
-import datetime
 from student.models import Student
 # Create your models here.
 class Faculty(models.Model):
