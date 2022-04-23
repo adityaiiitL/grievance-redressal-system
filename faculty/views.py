@@ -7,31 +7,28 @@ from student.models import Student
 
 
 # Create your views here.
-<<<<<<< HEAD
 def report(request):
     allcomplains = Complain.objects.all()
     allfaculty = Faculty.objects.all()
     return render(request, 'faculty/index.html', {'allcomplains': allcomplains, 'allfaculty':allfaculty})
-=======
 today_date = date.today() 
-def update_tree():
-    datetime.datetime()
-    if(date.today() != today_date):
-        today_date = date.today()
-        update_obj = Complain.objects.filter(complain_response_date__date= today_date) 
-        for obj in update_obj:
-            obj.complain_response_date = today_date+timedelta(days=2)
-            # Request elevated to the parent node
-            obj.registered_to = obj.registered_to.parent
+# def update_tree():
+#     datetime.datetime()
+#     if(date.today() != today_date):
+#         today_date = date.today()
+#         update_obj = Complain.objects.filter(complain_response_date__date= today_date) 
+#         for obj in update_obj:
+#             obj.complain_response_date = today_date+timedelta(days=2)
+#             # Request elevated to the parent node
+#             obj.registered_to = obj.registered_to.parent
 
 
 def reports(request):
     #meri logic 
-    update_tree()
+    # update_tree()
     complains = Complain.objects.all()[0:10]
     return render(request, 'faculty/index.html', {"complains":complains})
 
->>>>>>> 90957059a6bfcda9ecef85c21ca00fd55cb0ea87
 
 # API's here
 def search(request):
@@ -47,14 +44,11 @@ def index(request):
 
 # def index(request):
 
-<<<<<<< HEAD
 def read(request, id):
     vi = Complain.objects.filter(complain_id=id )[0]
 
     context = {'vi':vi}
     return render(request, "faculty/view.html", context)
-=======
 def Complain_(request):
     complains = Complain.objects.all()
     return render(request, "complain.html", context={'complains': complains})
->>>>>>> 90957059a6bfcda9ecef85c21ca00fd55cb0ea87
