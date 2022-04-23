@@ -8,8 +8,8 @@ from student.models import Student
 # Create your views here.
 def report(request):
     allcomplains = Complain.objects.all()
-    return render(request, 'faculty/index.html', {'allcomplains': allcomplains})
-
+    allfaculty = Faculty.objects.all()
+    return render(request, 'faculty/index.html', {'allcomplains': allcomplains, 'allfaculty':allfaculty})
 
 # API's here
 def search(request):
@@ -22,3 +22,8 @@ def search(request):
 
 # def index(request):
 
+def read(request, id):
+    vi = Complain.objects.filter(complain_id=id )[0]
+
+    context = {'vi':vi}
+    return render(request, "faculty/view.html", context)
