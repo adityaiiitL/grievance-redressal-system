@@ -13,7 +13,10 @@ class Faculty(models.Model):
     designation = models.CharField(max_length=100)
     contact = models.EmailField(max_length=200) 
     parent = models.ForeignKey('self', blank = True, default=" ",null=True, on_delete=models.CASCADE)
-    
+
+    def __str__(self):
+        return self.name    
+        
 class Complain(models.Model): 
     complain_id = models.AutoField
     heading = models.CharField(max_length=300)
@@ -24,4 +27,4 @@ class Complain(models.Model):
     status = models.IntegerField(max_length=1,default=" ",null=True)
 
     def __str__(self):
-        return self.registered_to
+        return self.heading + " to " + self.registered_to.name

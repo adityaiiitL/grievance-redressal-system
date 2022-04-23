@@ -33,17 +33,29 @@ today_date = None
 
 def update_tree():
     global today_date
-    if(today_date is None or today_date.date < datetime.now().date):
+    if(today_date is None or today_date.day < datetime.now().day):
         today_date = datetime.now()
-        update_obj = Complain.objects.filter(complain_response_date__date <= today_date.date)
+        update_obj = Complain.objects.filter(complain_response_date__day < today_date.day)
         for obj in update_obj:
             obj.complain_response_date = today_date+timedelta(days=2)
             # Request elevated to the parent node
             obj.registered_to = obj.registered_to.parent
 
+# today_date = None
+
+# def update_tree():
+#     global today_date
+#     if(today_date is None or today_date < datetime.now()):
+#         today_date = datetime.now()
+#         update_obj = Complain.objects.filter(complain_response_date__minute < today_date.minute)
+#         for obj in update_obj:
+#             obj.complain_response_date = today_date+timedelta(minutes=2)
+#             # Request elevated to the parent node
+#             obj.registered_to = obj.registered_to.parent
+
 
 def report(request):
-    # update_tree()
+    update_tree()
     allcomplains = Complain.objects.all()
     allfaculty = Faculty.objects.all()
     return render(request, 'faculty/index.html', {'allcomplains': allcomplains, 'allfaculty':allfaculty})
