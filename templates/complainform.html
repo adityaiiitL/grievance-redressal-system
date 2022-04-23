@@ -1,10 +1,14 @@
 {% extends 'basic.html' %}
 {% block css %}
+<<<<<<< HEAD
 <style>
+=======
+>>>>>>> bef1943ef1d78e3eafc11a41d738ab6bb20e117c
 .kitt{
 background:yellow;
 }
 
+<<<<<<< HEAD
 .container{
 
         width: 55.5rem;
@@ -41,10 +45,13 @@ height:60%;
 
 
 </style>
+=======
+>>>>>>> bef1943ef1d78e3eafc11a41d738ab6bb20e117c
 {% endblock %}
 
 
 {% block body %}
+<<<<<<< HEAD
 <!--<div style="width: 18rem; ">-->
 <!--    <form method="POST" class="post-form">-->
 <!--        {% csrf_token %}-->
@@ -63,4 +70,11 @@ height:60%;
 </div>
 
 
+=======
+<form method="POST" class="post-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">Save</button>
+</form>
+>>>>>>> bef1943ef1d78e3eafc11a41d738ab6bb20e117c
 {% endblock %}
