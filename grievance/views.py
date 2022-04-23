@@ -29,6 +29,14 @@ def home(request):
 def form(request):
     return render(request, "form.html")
 
+from random import random
+
+from django.contrib import messages
+from django.contrib.auth import logout, login, authenticate
+from django.contrib.auth.models import User
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
+
 
 def handleSignUp(request):
     if request.method == "POST":
@@ -43,8 +51,7 @@ def handleSignUp(request):
         myuser = User.objects.create_user(username, email, pass1)
         myuser.first_name = fname
         myuser.last_name = lname
-        if pass2 == pass1:
-            myuser.save()
+        myuser.save()
         messages.success(request, " Your account has been successfully created")
         return redirect('/')
 
@@ -53,19 +60,26 @@ def handleSignUp(request):
 
     return HttpResponse("login")
 
-
 def handleLogin(request):
     if request.method == "POST":
         # Get the post parameters
         loginusername = request.POST['loginusername']
         loginpassword = request.POST['loginpassword']
-        loginemail = request.POST['loginemail']
-        user = authenticate(username=loginusername, password=loginpassword, email=loginemail)
 
-    return HttpResponse("/")
+        user = authenticate(username = loginusername, password = loginpassword)
 
+        if user is not None:
+            login(request, user)
+            messages.success(request, "Successfully loged in")
+            return redirect('/')
+        else:
+            messages.error(request, "Invalid, Try Again")
+            return redirect("/")
+
+    return HttpResponse("handlelogin")
 
 def handleLogout(request):
     logout(request)
     messages.success(request, "Successfully logged out")
     return redirect('/')
+

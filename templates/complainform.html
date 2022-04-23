@@ -1,80 +1,16 @@
 {% extends 'basic.html' %}
 {% block css %}
-<<<<<<< HEAD
-<style>
-=======
->>>>>>> bef1943ef1d78e3eafc11a41d738ab6bb20e117c
 .kitt{
 background:yellow;
 }
 
-<<<<<<< HEAD
-.container{
-
-        width: 55.5rem;
-		background-color: #073f50;
-		border: none;
-		border-radius: 5px;
-		height: 47rem;
-		color: rgb(240, 232, 232);
-		font: sans-serif;
-         margin:15%;
-         padding:55px;
-         margin-top:10%;
-         margin-bottom: 15%;
-         font-size: 25px;
-		 text-align: center;
-		box-shadow: 0px 0px 13px 0px rgba(28, 34, 55, 0.75);
-		-webkit-box-shadow: 0px 0px 13px 0px rgba(28, 34, 55, 0.75);
-		-moz-box-shadow: 0px 0px 13px 0px rgba(28, 34, 55, 0.75);
-		transition: all 0.4s ease-out;
-   
-}
-
-.save{
-   border-color: 7px;
-   border-radius:5px;
-   background: black;
-   color: white;
-   margin-top:5%;
-<!--   margin-left:15%;-->
-width:90%;
-height:60%;
-}
-
-
-
-</style>
-=======
->>>>>>> bef1943ef1d78e3eafc11a41d738ab6bb20e117c
 {% endblock %}
 
 
 {% block body %}
-<<<<<<< HEAD
-<!--<div style="width: 18rem; ">-->
-<!--    <form method="POST" class="post-form">-->
-<!--        {% csrf_token %}-->
-<!--        {{ form.as_p }}-->
-<!--        <button type="submit" class="save btn btn-default">Save</button>-->
-<!--    </form>-->
-<!--</div>-->
-
-<div class="container">
-    <form method="POST" class="post-form">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save">Save</button>
-    </form>
-</div>
-</div>
-
-
-=======
 <form method="POST" class="post-form">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="save btn btn-default">Save</button>
 </form>
->>>>>>> bef1943ef1d78e3eafc11a41d738ab6bb20e117c
 {% endblock %}
