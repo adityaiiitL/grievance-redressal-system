@@ -13,6 +13,7 @@ urlpatterns = [
     path('faculty/', include('faculty.urls')),
     path('', views.index, name='index'),
     path('home',views.home, name='home'),
+    path('form', views.form, name='form'),
     path('signup', views.handleSignUp, name="handleSignUp"),
     path('login', views.handleLogin, name="handleLogin"),
     path('logout', views.handleLogout, name="handleLogout"),
