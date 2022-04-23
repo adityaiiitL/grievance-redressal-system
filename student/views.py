@@ -1,5 +1,6 @@
 from django.contrib.auth.models import Permission, User
 from django.shortcuts import render
+from pip import main
 from faculty.models import Complain, Faculty
 from django.contrib import messages
 # Create your views here.
@@ -18,7 +19,10 @@ def new_complain(request):
         return render('complain.html')
     else:
         print("GHAPLA HO RHA HAI")
-    
+
 def index(request):
     if request.user.is_authenticated():
         User.objects.get()
+
+if __name__ == "__main__":
+    print("ghapla hota rahega"); 
