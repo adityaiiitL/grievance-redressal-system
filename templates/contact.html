@@ -1,5 +1,30 @@
 {% extends 'basic.html' %}
+{% block css %}
+.container {
+    {% comment %} width: 55.5rem; {% endcomment %}
+    border-radius: 5px;
+    font: arial;
+    padding: 50px;
+    margin-top: 3%;
+    font-size: 20px;
+    box-shadow: 0px 0px 7px 0px black;
+    -webkit-box-shadow: 0px 0px 7px 0px black;
+    -moz-box-shadow: 0px 0px 7px 0px black;
+    transition: all 0.4s ease-out;
+}
+.save {
+    border-color: black;
+    border-radius: 5px;
+    background:#052a36;
+    color: white;
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 90%;
+    height: 60%;
 
+}
+
+{% endblock %}
 {% block body %}
 <div style="margin:80px">
     <h1>Contact</h1>
@@ -8,10 +33,11 @@
         Please write your name, email address and a message below if you have any questions.
         One of our staff members will be happy to contact you directly and answer your questions as soon as possible.
     </p>
+    <div class="container">
     <form method="post">
         {% csrf_token %}
         {{form.as_p}}
-        <button type="submit">Submit</button>
+        <button type="submit" class="save">Submit</button>
     </form>
 </div>
 {% endblock body %}
