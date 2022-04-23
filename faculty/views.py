@@ -7,19 +7,18 @@ from student.models import Student
 
 
 # Create your views here.
-today_date = date.today() 
+today_date = None
 def update_tree():
-    datetime.datetime()
-    if(date.today() != today_date):
-        today_date = date.today()
-        update_obj = Complain.objects.filter(complain_response_date__date= today_date) 
+    if(today_date is None or today_date < datetime.now()):
+        global today_date = datetime.now()
+        update_obj = Complain.objects.filter(complain_response_date <= today_date) 
         for obj in update_obj:
             obj.complain_response_date = today_date+timedelta(days=2)
             # Request elevated to the parent node
             obj.registered_to = obj.registered_to.parent
 
 
-def reports(request):
+def report(request):
     #meri logic 
     update_tree()
     complains = Complain.objects.all()[0:10]
