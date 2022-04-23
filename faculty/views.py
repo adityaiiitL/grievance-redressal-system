@@ -6,8 +6,9 @@ from student.models import Student
 
 
 # Create your views here.
-def reports(request):
-    return render(request, 'faculty/index.html')
+def report(request):
+    allcomplains = Faculty.objects.all()
+    return render(request, 'faculty/index.html', {'allcomplains': allcomplains})
 
 
 # API's here
@@ -19,5 +20,5 @@ def search(request):
         complains = Complain.objects.filter(Q(heading=query)|Q(description=query))
         return render(request, 'faculty/search.html', {"complains":complains})
 
-def index(request):
-    
+# def index(request):
+

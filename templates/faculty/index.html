@@ -124,28 +124,21 @@
 {% endblock css %}
 {% block body %}
 <hr style="background-color:white;">
-<h1>Welcome to the Admin Portal</h1>
+<h3>Welcome to the Faculty Portal</h3>
 
+{% for i in allcomplains %}
 <div class="row fir-part" style="display: flex;">
 	<div class="card">
 		<div class="cdb">
 			<a href="/faculty/report/" style="text-decoration: none; color:white;"> <img src="/media/faculty.jpg"
 					width=100%></a>
 			<br>
-			<h5 class="cd-title" style="color:white;">Faculty</h5>
-			<h6 style="color:white;">Whenever the complainant for valid reasons requests that his identity be withheld while processing the complaint, this will be ensured by the NCTE.</h6>
-		</div>
-	</div>
-<div class="card">
-		<div class="cdb">
-			<a href="student/studentComplain/" style="text-decoration: none; color:white;"> <img src="/media/student.jpg"
-					width=100%></a>
-			<br>
-			<h5 class="cd-title" style="color:white;">Student</h5>
-			<h6 style="color:white;">A complaint from an aggrieved student relating to a college shall be addressed to the Collegiate Student Grievance Redressal Committee (CSGRC)</h6>
+			<h5 class="cd-title" style="color:white;">{{i.heading}}</h5>
+			<h6 style="color:white;">{{i.description}}</h6>
 		</div>
 	</div>
 </div>
+{% endfor %}
 <!--<div class="btn-container">-->
 <!--	<p><a class="animation-btn" href="/all/upload">+ Create</a></p>-->
 <!--</div>-->
@@ -153,8 +146,5 @@
 {% endblock body %}
 
 {% block js%}
-<script>
-	document.getElementById("demo").innerHTML =
-		"cookiesEnabled is " + navigator.cookieEnabled;
-</script>
+
 {% endblock js %}
