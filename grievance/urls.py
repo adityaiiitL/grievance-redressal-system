@@ -10,7 +10,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # path('student/', include('student.urls')),
-    # path('faculty/', include('faculty.urls')),
+    path('faculty/', include('faculty.urls')),
     path('', views.index, name='index'),
     path('home',views.home, name='home'),
     path('signup', views.handleSignUp, name="handleSignUp"),

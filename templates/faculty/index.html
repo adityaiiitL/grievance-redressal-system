@@ -1,0 +1,120 @@
+{% extends 'basic.html' %}
+{% block css %}
+<style>
+	html,
+	body {
+		background-color: white;
+		color: #375eea;
+		margin: 0;
+		width: 100%;
+	}
+
+	.card {
+		width: 23.5rem;
+		background-color: #f5f7ff;
+		border: none;
+		border-radius: 15px;
+		border-color: black;
+		height: 15rem;
+		color: rgb(0, 0, 0);
+		font: sans-serif;
+		margin-left: 25px;
+		margin-top: 56px;
+		text-align: center;
+		box-shadow: 0px 0px 13px 0px rgba(28, 34, 55, 0.75);
+		-webkit-box-shadow: 0px 0px 13px 0px rgba(28, 34, 55, 0.75);
+		-moz-box-shadow: 0px 0px 13px 0px rgba(28, 34, 55, 0.75);
+		transition: all 0.4s ease-out;
+	}
+
+	.card:hover {
+		cursor: pointer;
+		transform: scale(1.05);
+
+	}
+
+	.cd-title {
+		margin-top: 18px;
+		font-size: 27px;
+		color: #1c2237;
+	}
+
+	.cdb,
+	img {
+		border: none;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	.fir-part,
+	.sec-part {
+
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		align-content: center;
+	}
+
+	.fir-part {
+		margin: 5% 0;
+	}
+
+	.sec-part {
+		background-color: #1c2237;
+		color: white;
+		margin-top: 5%;
+		padding: 50px;
+	}
+
+	h1 {
+		text-align: center;
+		background-color: #1c2237;
+		color: white;
+		font-size: 50px;
+		padding: 30px;
+		margin-top: 0px;
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	}
+	h8{
+	margin-top: 90px;
+	}
+</style>
+{% endblock css %}
+{% block body %}
+<hr style="background-color:white;">
+<h3 style="background:rgb(77, 77, 248); color:white; text-align:center; ">PENDING COMPLAINS</h3>
+
+{% for i in allcomplains %}
+<div class="row fir-part" style="display: flex;">
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{i.heading}}</h5>
+        <p class="card-text">{{i.description}}</p>
+
+		  <h8 >{{i.complain_response_date}}</h8>
+		  <br><br><br>
+		    <a href="#" class="btn btn-primary">Go to details</a>
+      </div>
+    </div>
+  </div><div>
+</div>
+</div>
+</div>
+{% endfor %}
+<!--<div class="btn-container">-->
+<!--	<p><a class="animation-btn" href="/all/upload">+ Create</a></p>-->
+<!--</div>-->
+
+{% endblock body %}
+
+{% block js%}
+
+{% endblock js %}

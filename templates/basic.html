@@ -34,19 +34,32 @@
 
 
     <div class="collapse navbar-collapse col-md-3 text-end" id="navbarSupportedContent">
+ {% if user.is_authenticated  %}
+    <ul class="navbar-nav mr-2">
+      <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle text-white"  href='#'  id="navbarDropdown" role="button" data-toggle="dropdown"> Welcome {{request.user}}</a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/logout">Logout</a>
 
-        <button type="button" class="btn btn-outline-black ml-2 mr-2" data-toggle="modal" data-target="#loginModal"
-                style="color: white;">
-            Login
-        </button>
+              </div>
+            </li>
+            </ul>
+            </div>
+    {% else %}
 
-        <button type="button" class="btn btn-outline-black ml-2 mr-2" data-toggle="modal" data-target="#signupModal"
-                style="color: white;">
-            SignUp
-        </button>
+<button type="button" class="btn  mr-2" data-toggle="modal" data-target="#loginModal" style=" background-color:#ffc107; color: white;">
+Login
+</button>
+
+<button type="button" class="btn btn-success mr-2" data-toggle="modal" data-target="#signupModal">
+SignUp
+</button>
+
+ {% endif %}
 
     </div>
     </div>
+
 </nav>
 
 
@@ -152,7 +165,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/login" method="POST">
+                <form action="/" method="POST">
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="username">Username</label>
