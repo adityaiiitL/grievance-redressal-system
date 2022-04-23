@@ -3,6 +3,7 @@ from django.db.models import Q
 from django.shortcuts import HttpResponse
 from .models import Faculty, Complain
 from student.models import Student
+from faculty.forms import ComplainForm
 
 
 # Create your views here.
@@ -26,3 +27,13 @@ def search(request):
 def Complain_(request):
     complains = Complain.objects.all()
     return render(request, "complain.html", context={'complains': complains})
+
+
+def complainform(request):
+    if request.method == "POST":
+        form = ComplainForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = ComplainForm()
+    return render(request, 'complainform.html', {'form': form})
