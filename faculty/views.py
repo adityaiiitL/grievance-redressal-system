@@ -1,4 +1,5 @@
 from datetime import datetime, date, timedelta
+from tkinter import N
 from django.shortcuts import render
 from django.db.models import Q
 from django.shortcuts import HttpResponse
@@ -8,29 +9,8 @@ from faculty.forms import ComplainForm
 
 
 # Create your views here.
-def report(request):
-    allcomplains = Complain.objects.all()
-    allfaculty = Faculty.objects.all()
-    return render(request, 'faculty/index.html', {'allcomplains': allcomplains, 'allfaculty':allfaculty})
-today_date = date.today() 
-# def update_tree():
-#     datetime.datetime()
-#     if(date.today() != today_date):
-#         today_date = date.today()
-#         update_obj = Complain.objects.filter(complain_response_date__date= today_date) 
-#         for obj in update_obj:
-#             obj.complain_response_date = today_date+timedelta(days=2)
-#             # Request elevated to the parent node
-#             obj.registered_to = obj.registered_to.parent
 
-
-def reports(request):
-    #meri logic 
-    # update_tree()
-    complains = Complain.objects.all()[0:10]
-    return render(request, 'faculty/index.html', {"complains":complains})
 today_date = None
-
 def update_tree():
     global today_date
     if(today_date is None or today_date.day < datetime.now().day):
@@ -41,25 +21,12 @@ def update_tree():
             # Request elevated to the parent node
             obj.registered_to = obj.registered_to.parent
 
-# today_date = None
-
-# def update_tree():
-#     global today_date
-#     if(today_date is None or today_date < datetime.now()):
-#         today_date = datetime.now()
-#         update_obj = Complain.objects.filter(complain_response_date__minute < today_date.minute)
-#         for obj in update_obj:
-#             obj.complain_response_date = today_date+timedelta(minutes=2)
-#             # Request elevated to the parent node
-#             obj.registered_to = obj.registered_to.parent
-
 
 def report(request):
     update_tree()
     allcomplains = Complain.objects.all()
     allfaculty = Faculty.objects.all()
     return render(request, 'faculty/index.html', {'allcomplains': allcomplains, 'allfaculty':allfaculty})
-
 
 # API's here
 def search(request):
@@ -72,8 +39,6 @@ def search(request):
 
 def index(request):
     pass
-
-# def index(request):
 
 def read(request, id):
     vi = Complain.objects.filter(complain_id=id )[0]
