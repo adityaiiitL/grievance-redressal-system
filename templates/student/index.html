@@ -88,7 +88,6 @@
 {% endblock css %}
 {% block body %}
 <hr style="background-color:white;">
-<<<<<<< HEAD
 <h3 style="background:rgb(77, 77, 248); color:white; text-align:center; ">PAST COMPLAINS</h3>
 <h4>COMPLETED COMPLAINTS</h4>
 {% for i in allcomplains %}
@@ -100,9 +99,10 @@
       <div class="card-body">
         <h5 class="card-title">{{i.heading}}</h5>
         <p class="card-text">{{i.description}}</p>
+
 		  <h8 >{{i.complain_response_date}}</h8>
 		  <br><br><br>
-		    <a href="/faculty/read/{{i.complain_id}}" class="btn btn-primary">Go to details</a>
+		    <a href="#" class="btn btn-primary">Go to details</a>
       </div>
     </div>
   </div>
@@ -112,9 +112,6 @@
 </div>
 {% endif %}
 {% endfor %}
-=======
-<h3 style="background:#073f50; color:white; text-align:center; ">PENDING COMPLAINS</h3>
->>>>>>> 90957059a6bfcda9ecef85c21ca00fd55cb0ea87
 
 <h4>INCOMPLETED COMPLAINTS</h4>
 {% for i in allcomplains %}

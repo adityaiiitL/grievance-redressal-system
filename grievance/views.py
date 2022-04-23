@@ -26,6 +26,9 @@ def index(request):
 def home(request):
     return render(request, "home.html")
 
+def form(request):
+    return render(request, "form.html")
+
 
 def handleSignUp(request):
     if request.method == "POST":
