@@ -22,7 +22,8 @@ def update_tree():
 def reports(request):
     #meri logic 
     update_tree()
-    return render(request, 'faculty/index.html')
+    complains = Complain.objects.all()[0:10]
+    return render(request, 'faculty/index.html', {"complains":complains})
 
 
 # API's here
