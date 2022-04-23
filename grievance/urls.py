@@ -17,7 +17,7 @@ urlpatterns = [
     path('signup', views.handleSignUp, name="handleSignUp"),
     path('login', views.handleLogin, name="handleLogin"),
     path('logout', views.handleLogout, name="handleLogout"),
-
+    path("contact", views.contact, name="contact"),
     # path('accounts/', include('allauth.urls'))
 
 ] + static(settings.MEDIA_URL, document_root =settings.MEDIA_ROOT)
