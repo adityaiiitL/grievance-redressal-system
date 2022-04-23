@@ -25,5 +25,3 @@ def index(request):
     if request.user.is_authenticated():
         User.objects.get()
 
-if __name__ == "__main__":
-    print("ghapla hota rahega"); 
