@@ -15,7 +15,7 @@ def update_tree():
     global today_date
     if(today_date is None or today_date.day < datetime.now().day):
         today_date = datetime.now()
-        update_obj = Complain.objects.filter(complain_response_date__day < today_date.day)
+        update_obj = Complain.objects.filter(complain_response_date.date() < today_date)
         for obj in update_obj:
             obj.complain_response_date = today_date+timedelta(days=2)
             # Request elevated to the parent node
@@ -41,11 +41,10 @@ def search(request):
 def index(request):
     pass
 
-def read(request, id):
-    vi = Complain.objects.filter(complain_id=id)[0]
-
-    context = {'vi': vi}
-    return render(request, "faculty/view.html", context)
+def read(request, complain_id):
+    slug = 10
+    vi = Complain.objects.filter(id=complain_id).first()
+    return render(request, "faculty/view.html", {'vi':vi})
 
 def Complain_(request):
     allcomplains = Complain.objects.all()
@@ -60,3 +59,4 @@ def complainform(request):
     else:
         form = ComplainForm()
     return render(request, 'complainform.html', {'form': form})
+

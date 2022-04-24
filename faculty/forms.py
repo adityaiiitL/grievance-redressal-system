@@ -1,5 +1,5 @@
 from django import forms
-from faculty.models import Complain
+from .models import Complain
 
 
 class ComplainForm(forms.ModelForm):

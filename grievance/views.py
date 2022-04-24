@@ -9,8 +9,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage, send_mail
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, BadHeaderError
 from django.views.generic import TemplateView
+from .forms import ContactForm
 # from validate_email import validate_email
 import smtplib
 import ssl
@@ -23,21 +24,17 @@ class Homepage(LoginRequiredMixin, TemplateView):
 def index(request):
     return render(request, "index.html")
 
+
 def home(request):
     return render(request, "home.html")
+
 
 def form(request):
     return render(request, "form.html")
 
-from random import random
-
-from django.contrib import messages
-from django.contrib.auth import logout, login, authenticate
-from django.contrib.auth.models import User
-from django.http import HttpResponse
-from django.shortcuts import render, redirect
-
-
+def about(request):
+    return render(request,"aboutus.html")
+    
 def handleSignUp(request):
     if request.method == "POST":
         # Get the post parameters
@@ -83,3 +80,25 @@ def handleLogout(request):
     messages.success(request, "Successfully logged out")
     return redirect('/')
 
+
+def contact(request):
+    if request.method == 'POST':
+        formc = ContactForm(request.POST)
+        if formc.is_valid():
+            subject = "Website Inquiry"
+            body = {
+                'first_name': formc.cleaned_data['first_name'],
+                'last_name': formc.cleaned_data['last_name'],
+                'email': formc.cleaned_data['email_address'],
+                'message': formc.cleaned_data['message'],
+            }
+            message = "\n".join(body.values())
+
+            try:
+                send_mail(subject, message, 'palakakhilg@gmail.com', ['admin@example.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect("home")
+
+    formc = ContactForm()
+    return render(request, "contact.html", {'form': formc})
