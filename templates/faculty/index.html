@@ -93,7 +93,7 @@
 <h3 style="background:#073f50; color:white; text-align:center; ">COMPLETED COMPLAINTS</h3>
 </div>
 {% for i in allcomplains %}
-{% if i.status is 0 %}
+{% if i.completed is True %}
 <div class="row fir-part" style="display: flex;">
 	<div class="row">
 		<div class="col-sm-6">
@@ -118,7 +118,7 @@
 <h3 style="background:#073f50; color:white; text-align:center; ">INCOMPLETED COMPLAINTS</h3>
 </div>
 {% for i in allcomplains %}
-{% if i.status is not 0 %}
+{% if i.completed is False %}
 <div class="row fir-part" style="display: flex;">
 <div class="row">
   <div class="col-sm-6">
@@ -129,7 +129,8 @@
 
 		  <h8 >{{i.complain_response_date}}</h8>
 		  <br>
-          <a href="#" class="btn btn-primary">SEND TO HIGHER</a>
+          <a href="/faculty/elevate/{{i.id}}" class="btn btn-primary">Send to Higher</a>
+          <a href="/faculty/complete/{{i.id}}" class="btn btn-primary">Mark as Completed</a>
       </div>
     </div>
   </div>
