@@ -1,5 +1,5 @@
 from django.contrib.auth.models import Permission, User
-from django.shortcuts import render
+from django.shortcuts import render,  redirect
 from pip import main
 from faculty.models import Complain, Faculty
 from django.contrib import messages
@@ -16,10 +16,9 @@ def new_complain(request):
         complain_response_date = complain_response_date)
         complain_status = request.POST.get('complain_status')
         complain_object.save()
-        messages.success(request, 'Your Complain has been registered successfully.')
-        return render('complain.html')
+        return redirect('index.html')
     else:
-        print("GHAPLA HO RHA HAI")
+        print("Administration is corrupted")
 
 def index(request):
     if request.user.is_authenticated():

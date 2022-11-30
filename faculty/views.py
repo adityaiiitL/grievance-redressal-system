@@ -1,12 +1,12 @@
 from datetime import datetime, date, timedelta
 from tkinter import N
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.db.models import Q
 from django.shortcuts import HttpResponse
 from .models import Faculty, Complain
 from student.models import Student
 from faculty.forms import ComplainForm
-
+from django.contrib import messages
 
 # Create your views here.
 
@@ -18,13 +18,13 @@ def update_tree():
         update_obj = Complain.objects.filter(complain_response_date.date() < today_date)
         for obj in update_obj:
             obj.complain_response_date = today_date+timedelta(days=2)
-            # Request elevated to the parent node
             obj.registered_to = obj.registered_to.parent
 
 
 def report(request):
     update_tree()
     allcomplains = Complain.objects.all()
+    # allcomplains = Complain.objects.filter(registered_to=request.user)
     allfaculty = Faculty.objects.all()
     return render(request, 'faculty/index.html', {'allcomplains': allcomplains, 'allfaculty':allfaculty})
 
@@ -56,6 +56,8 @@ def complainform(request):
         form = ComplainForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, " Your complain has been successfully created")
+            return redirect('/')
     else:
         form = ComplainForm()
     return render(request, 'complainform.html', {'form': form})
