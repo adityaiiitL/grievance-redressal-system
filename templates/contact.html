@@ -2,19 +2,79 @@
 {% block title %} Contact Us {% endblock %}
 {% block css %} 
 
-.containert {
-    
+body {
+  background-color: #f3f3ff;
+}
+
+body > h1 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+input[type="text"],input[type="email"],input[type="tel"]{
+  width: 100%;
+  padding-left: 10px;
+  border-radius: 15px;
+  box-shadow: none;
+}
+
+textarea.form-control {
+  width: 100%;
+  padding-left: 10px;
+  border-radius: 15px;
+  box-shadow: none;
+}
+
+select {
+  padding-left: 10px;
+  border-radius: 15px;
+  height: 2.25rem;
+}
+
+label {
+  color: white;
+}
+
+
+.save {
+  border-color: grey;
+  border-radius: 5px;
+  background-color: #afafff;
+  font-weight: 600;
+  color: black;
+  margin-top: 5%;
+  margin-left: 5%;
+  width: 90%;
+  height: 60%;
+  border-radius: 15px;
+}
+
+.containert { 
   background : #05124d ;
   color :white;
   margin :10%;
   border-radius : 10px;
   padding : 10px;
   padding-left: 10px;
+  background-color: #15225d;
+  border-radius: 25px;
+  color: rgb(253, 224, 224);
+  font: arial;
+  padding: 50px;
+  margin-top: 3%;
+  font-size: 20px;
+  box-shadow: 0px 0px 7px 0px black;
+  -webkit-box-shadow: 0px 0px 7px 0px black;
+  -moz-box-shadow: 0px 0px 7px 0px black;
+  transition: all 0.4s ease-out;
+  align-items:center;
+}
+
+.nav-item-contact {
+  color: #fff!important;
 }
 {% endblock %}
 {% block body %}
  <div class="containert">
-    <br><br><br>
      <h1 style="text-align: center ">Contact Us</h1><br>
      
      <form action="/contact" method="post">{% csrf_token %}
@@ -35,14 +95,10 @@
     <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
   </div>
 
-         <button type="submit" class="btn btn-success" style="width: 180px; align-items: right: inherit;;">Submit</button>
-         <br><br><br><br><br><br>
+         <button type="submit" class="save btn btn-success" >Submit</button>
          </form>
 </div>
 
-<br><br>
-<br>
-<br>
 <!-- Footer -->
 <footer class="page-footer font-small pt-4" style="background-color: #05124d;; color: aliceblue; ">
   <div class="container text-center text-md-left">

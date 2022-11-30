@@ -1,12 +1,15 @@
 {% extends 'basic.html' %}
 {% block css %}
-<style>
 	html,
 	body {
 		background-color: white;
 		color: #1c2237;
 		margin: 0;
 		width: 100%;
+	}
+
+	.nav-item-home {
+		color: #fff!important;
 	}
 
 	.card {
@@ -120,10 +123,9 @@
 		margin-top: 0px;
 		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	}
-</style>
 {% endblock css %}
 {% block body %}
-<hr style="background-color:white;">
+{% comment %} <hr style="background-color:white;"> {% endcomment %}
 <h1>Welcome to the Admin Portal</h1>
 
 <div class="row fir-part" style="display: flex;">

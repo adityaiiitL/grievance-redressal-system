@@ -4,6 +4,7 @@ from django.forms import DateTimeField
 from student.models import Student
 from django.utils.timezone import now
 # Create your models here.
+
 class Faculty(models.Model):
     faculty_id = models.AutoField
     name = models.CharField(max_length=100)
@@ -12,7 +13,7 @@ class Faculty(models.Model):
     parent = models.ForeignKey('self', blank = True, default=" ",null=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name    
+        return self.contact    
         
 class Complain(models.Model): 
     complain_id = models.AutoField
@@ -22,6 +23,7 @@ class Complain(models.Model):
     complain_response_date = models.DateTimeField(default=now)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.IntegerField(max_length=1,default=" ",null=True)
-
+    completed = models.BooleanField(default=False)
+    
     def __str__(self):
         return self.heading + " to " + self.registered_to.name

@@ -1,5 +1,7 @@
 <!doctype html>
 <html lang="en">
+
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -20,14 +22,14 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark" style="background: #011c60">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background: #011c60; display: flex; justify-content: space-between">
         <span class="badge rounded-circle ml-2"> <a class="navbar-brand" href="/"
                                                     style="color: rgb(255, 255, 255); font-family: 'Allison', cursive;  font-stretch: expanded;  font-size: 54px;  font-weight: 800; margin-top: -1%; margin-bottom: -1%;">Grievance</a></span>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <form method='get' action='/shop/search/' class="form-inline" style="margin:auto">
+    <form style="display: none"method='get' action='/shop/search/' class="form-inline" style="margin:auto">
         <input class="form-control mr-sm-2" style="width: 450px" type="search" placeholder="Search"
                aria-label="Search" name="search" id="search" style="margin-left:25%">
     </form>
@@ -45,6 +47,7 @@
             </div>
     {% else %}
 
+<div style="display: flex">
 <button type="button" class="btn  mr-2" data-toggle="modal" data-target="#loginModal" style=" background-color:#fefefe; color: rgb(1, 124, 161);">
 Login
 </button>
@@ -52,6 +55,8 @@ Login
 <button type="button" class="btn mr-2" style=" background-color:#fefefe; color: rgb(1, 124, 161);" data-toggle="modal" data-target="#signupModal">
 SignUp
 </button>
+</div>
+
 
  {% endif %}
   </div>
@@ -72,7 +77,6 @@ SignUp
 
 
 <nav class="navbar navbar-expand-lg navbar-dark" style="background: black">
-    <a class="navbar-brand" href="/" style="font-size: 25px; margin-top:-1%; margin-bottom:-1%"><b>All</b></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -80,20 +84,22 @@ SignUp
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+          <li class="nav-item">
+              <a class="nav-link nav-item-all" href="/">All <span class="sr-only">(current)</span></a>
+          </li>
+            <li class="nav-item ">
+                <a class="nav-link nav-item-home" href="/home">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/aboutus">About Us</a>
+                <a class="nav-link nav-item-about" href="/aboutus">About Us <span class="sr-only">(current)</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/faculty/complainform">Complain</a>
+                <a class="nav-link nav-item-complain" href="/faculty/complainform">Complain <span class="sr-only">(current)</span></a>
             </li>
 
-
             <li class="nav-item">
-                <a class="nav-link" href="/contact">Contact Us</a>
+                <a class="nav-link nav-item-contact" href="/contact">Contact Us <span class="sr-only">(current)</span></a>
             </li>
         </ul>
 
